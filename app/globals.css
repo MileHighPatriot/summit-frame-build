@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* Brand colors and fonts — used as Tailwind classes like bg-forest, text-ink, font-serif */
+@theme inline {
+  --color-paper: #f3eee4;
+  --color-cream: #faf7f1;
+  --color-ink: #1c1917;
+  --color-muted: #5e574e;
+  --color-forest: #1e3a32;
+  --color-forest-mid: #2a4f44;
+  --color-brass: #a6854d;
+  --color-line: #ddd4c6;
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 80;
+  background: var(--color-forest);
+  color: var(--color-cream);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: #d7e4dd;
+  color: var(--color-ink);
+}
