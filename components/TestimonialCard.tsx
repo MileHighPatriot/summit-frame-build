@@ -7,7 +7,7 @@ export default function TestimonialCard({
   testimonial: Testimonial;
 }) {
   return (
-    <blockquote className="flex h-full flex-col border border-line bg-cream p-7 sm:p-8">
+    <blockquote className="card-lift flex h-full flex-col border border-line bg-paper p-7 sm:p-8">
       <p className="font-serif text-lg leading-relaxed text-ink">
         “{testimonial.quote}”
       </p>

@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const steps = [
   {
     title: "You reach out",
@@ -48,47 +50,40 @@ const steps = [
 export default function HowWeWork() {
   return (
     <section id="how-we-work" className="scroll-mt-24 bg-cream">
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brass">
-          How we work
-        </p>
-        <h2 className="mt-3 max-w-2xl font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-          No sales office. Four steps, then we build.
-        </h2>
-        <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-          Same process for a custom home, an addition, a beam, or a garage.
-          You always know who is coming, what they are looking at, and what
-          happens next.
-        </p>
-
-        <ol className="mt-14 space-y-12">
+      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+        <ol className="space-y-12">
           {steps.map((step, index) => (
             <li
               key={step.title}
-              className="grid gap-6 border-t border-line pt-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12"
+              className="border-t border-line pt-10 first:border-t-0 first:pt-0"
             >
-              <div>
-                <p className="font-serif text-sm text-brass">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-3 font-serif text-2xl font-semibold tracking-tight sm:text-3xl">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-ink">{step.lead}</p>
-              </div>
-              <div>
-                <p className="leading-relaxed text-muted">{step.body}</p>
-                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {step.details.map((detail) => (
-                    <li
-                      key={detail}
-                      className="border-l-2 border-brass/70 pl-3 text-sm leading-relaxed text-ink"
-                    >
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Reveal
+                variant={index % 2 === 0 ? "roll" : "swing"}
+                className="grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12"
+              >
+                <div>
+                  <p className="font-serif text-sm text-brass">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-3 font-serif text-2xl font-semibold tracking-tight sm:text-3xl">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-ink">{step.lead}</p>
+                </div>
+                <div>
+                  <p className="leading-relaxed text-muted">{step.body}</p>
+                  <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                    {step.details.map((detail) => (
+                      <li
+                        key={detail}
+                        className="border-l-2 border-brass/70 pl-3 text-sm leading-relaxed text-ink"
+                      >
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ol>

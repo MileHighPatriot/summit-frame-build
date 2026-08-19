@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Logo from "@/components/Logo";
 import { primaryNav } from "@/data/nav";
+import { site } from "@/data/site";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -25,15 +27,22 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-cream/90 backdrop-blur-md">
+    <header className="site-header sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
-        <Link href="/" className="min-w-0" onClick={() => setOpen(false)}>
-          <p className="font-serif text-lg font-semibold tracking-tight text-ink sm:text-xl">
-            Summit Frame & Build
-          </p>
-          <p className="text-xs tracking-wide text-muted">
-            Aurora / Denver metro
-          </p>
+        <Link
+          href="/"
+          className="flex min-w-0 items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
+          <Logo variant="header" />
+          <span className="min-w-0">
+            <p className="font-serif text-lg font-semibold tracking-tight text-forest sm:text-xl">
+              Summit Frame & Build
+            </p>
+            <p className="text-xs tracking-wide text-muted">
+              Aurora / Denver metro
+            </p>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
@@ -49,6 +58,12 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <a
+            href={site.phoneHref}
+            className="whitespace-nowrap text-sm font-semibold text-forest hover:text-forest-mid"
+          >
+            {site.phoneDisplay}
+          </a>
           <Link
             href="/contact"
             className="rounded-sm bg-forest px-4 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-forest-mid"
@@ -87,6 +102,15 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href={site.phoneHref}
+              className="py-1 text-base font-semibold text-forest"
+            >
+              {site.phoneDisplay}
+            </a>
+            <a href={site.emailHref} className="py-1 text-sm text-muted">
+              {site.email}
+            </a>
             <Link
               href="/contact"
               className="mt-2 rounded-sm bg-forest px-4 py-3 text-center text-sm font-semibold text-cream"

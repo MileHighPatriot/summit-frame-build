@@ -8,6 +8,8 @@ export default function JsonLd() {
     description: site.description,
     url: site.url,
     foundingDate: String(site.founded),
+    telephone: "+17202606089",
+    email: site.email,
     areaServed: site.cities.map((name) => ({
       "@type": "City",
       name,

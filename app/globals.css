@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
-/* Brand colors and fonts — used as Tailwind classes like bg-forest, text-ink, font-serif */
+/*
+  Brand tokens. Class names like bg-forest and text-brass stay the same
+  so the whole site updates from this file.
+  forest = navy, brass = silver
+*/
 @theme inline {
-  --color-paper: #f3eee4;
-  --color-cream: #faf7f1;
-  --color-ink: #1c1917;
-  --color-muted: #5e574e;
-  --color-forest: #1e3a32;
-  --color-forest-mid: #2a4f44;
-  --color-brass: #a6854d;
-  --color-line: #ddd4c6;
+  --color-paper: #f3f5f8;
+  --color-cream: #f8fafc;
+  --color-ink: #0b1220;
+  --color-muted: #5c6775;
+  --color-forest: #0b1d36;
+  --color-forest-mid: #163052;
+  --color-brass: #9aa8b5;
+  --color-brass-hover: #b7c2cc;
+  --color-line: #d5dce4;
   --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
 }
@@ -26,6 +31,21 @@ html {
   * {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal.is-in,
+  .reveal-media img {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-photo,
+  .hero-mark,
+  .page-enter,
+  .route-wipe,
+  .site-header {
+    animation: none !important;
   }
 }
 
@@ -54,9 +74,184 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  overflow-x: hidden;
+  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding-bottom: 0;
+  }
 }
 
 ::selection {
-  background: #d7e4dd;
+  background: #d5deea;
   color: var(--color-ink);
+}
+
+.reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal-up {
+  transform: translateY(40px);
+}
+
+.reveal-swing {
+  transform: perspective(1100px) rotateX(16deg) translateY(46px);
+  transform-origin: top center;
+}
+
+.reveal-roll {
+  transform: perspective(1100px) rotateY(-12deg) translateX(-48px);
+  transform-origin: left center;
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+.reveal-zoom {
+  transform: scale(0.92);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal .reveal-rule {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+
+.reveal.is-in .reveal-rule {
+  transform: scaleX(1);
+}
+
+.reveal-media {
+  overflow: hidden;
+}
+
+.reveal-media img {
+  transform: scale(1.1);
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-in .reveal-media img {
+  transform: scale(1);
+}
+
+.page-enter {
+  animation: page-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center top;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) rotateX(5deg) translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.route-wipe {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background:
+    linear-gradient(90deg, var(--color-forest) 0%, var(--color-forest-mid) 70%, #1b3a5e 100%);
+  transform: translateX(-101%);
+}
+
+.route-wipe.is-on {
+  animation: route-wipe 0.72s cubic-bezier(0.77, 0, 0.18, 1) both;
+}
+
+@keyframes route-wipe {
+  0% {
+    transform: translateX(-101%);
+  }
+  42% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(101%);
+  }
+}
+
+.drone-video {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.hero-photo {
+  animation: hero-kenburns 18s ease-out both;
+}
+
+.hero-mark {
+  animation: hero-mark 10s ease-in-out infinite;
+}
+
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes hero-mark {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.88;
+  }
+  50% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+}
+
+.card-lift {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px -24px rgb(11 29 54 / 0.45);
+}
+
+.site-header {
+  animation: header-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes header-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: none;
+  }
 }

@@ -1,15 +1,30 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import { footerNav } from "@/data/nav";
+import { site } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-ink text-cream">
+    <footer className="border-t border-white/10 bg-forest text-cream">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 sm:px-8 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="font-serif text-xl font-semibold">Summit Frame & Build</p>
+          <div className="flex items-center gap-3">
+            <Logo variant="footer" />
+            <p className="font-serif text-xl font-semibold">Summit Frame & Build</p>
+          </div>
           <p className="mt-2 max-w-xs text-sm leading-relaxed text-cream/65">
             Custom home framing, room additions, and structural work in Aurora
             and the Denver metro area.
+          </p>
+          <p className="mt-4 text-sm">
+            <a href={site.phoneHref} className="text-cream hover:text-brass">
+              {site.phoneDisplay}
+            </a>
+          </p>
+          <p className="mt-1 text-sm">
+            <a href={site.emailHref} className="text-cream/75 hover:text-cream">
+              {site.email}
+            </a>
           </p>
         </div>
 

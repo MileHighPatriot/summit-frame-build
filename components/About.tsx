@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const timeline = [
   {
     year: "1989",
@@ -23,24 +25,10 @@ const timeline = [
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
+    <section id="about" className="scroll-mt-24 bg-cream px-5 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brass">
-          About the crew
-        </p>
-        <h2 className="mt-3 max-w-3xl font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-          A family framing business, founded in 1989.
-        </h2>
-        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted">
-          Summit Frame & Build is still run by the family that started it. We
-          are tradesmen first — early mornings, clean layout, and a job site
-          you do not have to apologize for. Professionalism here means we
-          return the call, we do what we said, and we do not leave a mess for
-          the next trade.
-        </p>
-
-        <div className="mt-12 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <div className="space-y-5 text-base leading-relaxed text-muted sm:text-lg">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <Reveal variant="roll" className="space-y-5 text-base leading-relaxed text-muted sm:text-lg">
             <p>
               In 1989 the company began in Aurora as a small framing crew taking
               the work other people rushed. Custom homes were going up along
@@ -95,25 +83,27 @@ export default function About() {
               if the next person through the door is going to be someone we
               know.
             </p>
-          </div>
+          </Reveal>
 
           <ol className="space-y-0 border-l border-line">
-            {timeline.map((item) => (
+            {timeline.map((item, index) => (
               <li
                 key={item.year}
                 className="group relative py-6 pl-8 first:pt-0"
               >
-                <span
-                  aria-hidden="true"
-                  className="absolute top-7 left-[-5px] h-2.5 w-2.5 rounded-full bg-brass group-first:top-1"
-                />
-                <p className="font-serif text-sm font-semibold text-brass">
-                  {item.year}
-                </p>
-                <h3 className="mt-1 font-serif text-xl font-semibold text-ink">
-                  {item.title}
-                </h3>
-                <p className="mt-2 leading-relaxed text-muted">{item.body}</p>
+                <Reveal variant="swing" delay={index * 90}>
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-7 left-[-5px] h-2.5 w-2.5 rounded-full bg-brass group-first:top-1"
+                  />
+                  <p className="font-serif text-sm font-semibold text-brass">
+                    {item.year}
+                  </p>
+                  <h3 className="mt-1 font-serif text-xl font-semibold text-ink">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 leading-relaxed text-muted">{item.body}</p>
+                </Reveal>
               </li>
             ))}
           </ol>

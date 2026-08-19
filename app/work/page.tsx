@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import PageCta from "@/components/PageCta";
+import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 
@@ -12,32 +15,23 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <main id="main">
-      <section className="bg-forest text-cream">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brass">
-            Selected work
-          </p>
-          <h1 className="mt-3 max-w-2xl font-serif text-4xl font-semibold tracking-tight sm:text-5xl">
-            Three jobs. The same standard.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-cream/80">
-            An addition, a custom home, and a structural opening. Each one
-            written up the way we talk about the work — scope, problem, and
-            what the next trade inherited. These are representative jobs for
-            the site, not a live client archive.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Selected work"
+        title="Three jobs. The same standard."
+        lede="An addition, a custom home, and a structural opening. Each one has a job snapshot — city, year, duration, what we framed, and what we did not — plus before and after photos. These are representative jobs for the site, not a live client archive."
+        image="/services/framing/home-trusses.jpg"
+      />
 
-      <section className="px-5 py-16 sm:px-8 sm:py-20">
+      <section className="bg-cream px-5 py-16 sm:px-8 sm:py-20">
         <ul className="mx-auto grid max-w-6xl gap-10">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <li key={project.slug}>
+              <Reveal variant={index % 2 === 0 ? "roll" : "swing"}>
               <Link
                 href={`/work/${project.slug}`}
-                className="group grid overflow-hidden border border-line bg-cream transition-colors hover:border-forest/40 lg:grid-cols-[1.1fr_0.9fr]"
+                className="card-lift group grid overflow-hidden border border-line bg-paper transition-colors hover:border-forest/40 lg:grid-cols-[1.1fr_0.9fr]"
               >
-                <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-80">
+                <div className="reveal-media relative aspect-[16/10] lg:aspect-auto lg:min-h-80">
                   <Image
                     src={project.cover.src}
                     alt={project.cover.alt}
@@ -56,15 +50,38 @@ export default function WorkPage() {
                   <p className="mt-4 leading-relaxed text-muted">
                     {project.summary}
                   </p>
+                  <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
+                    <div>
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+                        Duration
+                      </dt>
+                      <dd className="mt-0.5 font-medium text-ink">{project.duration}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+                        Scope
+                      </dt>
+                      <dd className="mt-0.5 font-medium text-ink">
+                        {project.scope.length} framing items
+                      </dd>
+                    </div>
+                  </dl>
                   <p className="mt-6 text-sm font-semibold text-forest">
-                    Read the case study
+                    Job snapshot and before / after
                   </p>
                 </div>
               </Link>
+              </Reveal>
             </li>
           ))}
         </ul>
       </section>
+
+      <PageCta
+        title="Have a job like one of these?"
+        lede="Send the address, the scope, and whatever drawings you have. We will tell you if we are the right crew."
+        image="/services/framing/home-trusses.jpg"
+      />
     </main>
   );
 }

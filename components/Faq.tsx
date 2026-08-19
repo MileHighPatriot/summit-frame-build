@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const items = [
   {
     question: "Do you pull permits?",
@@ -28,18 +30,12 @@ const items = [
 
 export default function Faq() {
   return (
-    <section id="faq" className="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
+    <section id="faq" className="scroll-mt-24 bg-cream px-5 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brass">
-          Common questions
-        </p>
-        <h2 className="mt-3 max-w-xl font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-          Straight answers before you call.
-        </h2>
-
-        <div className="mt-12 divide-y divide-line border-y border-line">
-          {items.map((item) => (
-            <details key={item.question} className="group py-5">
+        <div className="divide-y divide-line border-y border-line">
+          {items.map((item, index) => (
+            <Reveal key={item.question} variant="up" delay={index * 70}>
+            <details className="group py-5">
               <summary className="cursor-pointer list-none font-serif text-lg font-semibold tracking-tight marker:content-none [&::-webkit-details-marker]:hidden">
                 <span className="flex items-start justify-between gap-4">
                   {item.question}
@@ -55,6 +51,7 @@ export default function Faq() {
                 {item.answer}
               </p>
             </details>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import ServiceGallery from "@/components/ServiceGallery";
 
 const services = [
@@ -93,25 +94,16 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
+    <section id="services" className="scroll-mt-24 bg-cream px-5 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brass">
-          What we build
-        </p>
-        <h2 className="mt-3 max-w-xl font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-          Framing and structural work, done the right way.
-        </h2>
-        <p className="mt-4 max-w-2xl text-muted leading-relaxed">
-          We focus on the bones of the house. If it has to be square, strong,
-          and ready for the next trade, that is our job.
-        </p>
-
-        <div className="mt-12 space-y-8">
+        <div className="space-y-8">
           {services.map((service, index) => (
-            <article
+            <Reveal
               key={service.title}
-              className="border border-line bg-cream p-6 sm:p-8"
+              variant={index % 2 === 0 ? "swing" : "roll"}
+              delay={index * 70}
             >
+            <article className="card-lift border border-line border-t-4 border-t-forest bg-paper p-6 sm:p-8">
               <p className="font-serif text-sm text-brass">
                 {String(index + 1).padStart(2, "0")}
               </p>
@@ -123,6 +115,7 @@ export default function Services() {
               </p>
               <ServiceGallery images={service.images} />
             </article>
+            </Reveal>
           ))}
         </div>
       </div>

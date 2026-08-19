@@ -39,7 +39,7 @@ export default function SelectedWork() {
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brass">
-                    {project.location} · {project.type}
+                    {project.year} · {project.location} · {project.duration}
                   </p>
                   <h3 className="mt-2 font-serif text-xl font-semibold tracking-tight text-ink">
                     {project.title}

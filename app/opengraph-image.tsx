@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/data/site";
 
+export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,8 +15,8 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#1e3a32",
-          color: "#faf7f1",
+          background: "#0b1d36",
+          color: "#f8fafc",
           padding: 72,
         }}
       >
@@ -25,7 +26,7 @@ export default function OpenGraphImage() {
             fontSize: 22,
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#a6854d",
+            color: "#9aa8b5",
           }}
         >
           {`Family-run since ${site.founded}`}
@@ -51,7 +52,7 @@ export default function OpenGraphImage() {
               display: "flex",
               marginTop: 20,
               fontSize: 26,
-              color: "rgba(250,247,241,0.75)",
+              color: "rgba(248,250,252,0.75)",
             }}
           >
             {`${site.name}  ·  ${site.area}`}
