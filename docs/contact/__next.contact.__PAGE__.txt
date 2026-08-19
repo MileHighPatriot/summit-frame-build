@@ -1,42 +1,46 @@
 1:"$Sreact.fragment"
-2:I[5500,["/summit-frame-build/_next/static/chunks/3s20blesi_mt-.js","/summit-frame-build/_next/static/chunks/3th597p-gxqgg.js"],"Image"]
-3:I[59095,["/summit-frame-build/_next/static/chunks/3s20blesi_mt-.js","/summit-frame-build/_next/static/chunks/3th597p-gxqgg.js"],"default"]
-4:I[63971,["/summit-frame-build/_next/static/chunks/3s20blesi_mt-.js","/summit-frame-build/_next/static/chunks/3th597p-gxqgg.js"],"default"]
-5:I[81289,["/summit-frame-build/_next/static/chunks/3s20blesi_mt-.js","/summit-frame-build/_next/static/chunks/3th597p-gxqgg.js"],"default"]
-6:I[97367,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
-7:"$Sreact.suspense"
-b:I[97367,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
-c:I[97367,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
-a:X
-21:X
-21:C
-0:{"buildId":"4bPAHS566OJahyCvsQo46","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","children":[["$","section",null,{"className":"relative overflow-hidden bg-forest text-cream","children":[["$","div",null,{"className":"absolute inset-0","children":[["$","$L2",null,{"src":"/services/structural/struct-beam-v2.jpg","alt":"","fill":true,"priority":true,"sizes":"100vw","className":"hero-photo object-cover object-[center_40%] opacity-45"}],["$","div",null,{"className":"absolute inset-0 bg-gradient-to-r from-forest via-forest/85 to-forest/40"}]]}],["$","div",null,{"className":"hero-mark pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] items-center justify-center opacity-90 lg:flex","children":["$","svg",null,{"viewBox":"0 0 48 48","className":"text-cream/55 h-auto w-[72%]","fill":"none","aria-hidden":"true","children":[["$","path",null,{"d":"M8 22 L24 8 L40 22","stroke":"currentColor","strokeWidth":"2.2","strokeLinejoin":"miter"}],["$","path",null,{"d":"M12 22 V40 H36 V22","stroke":"currentColor","strokeWidth":"2.2"}],["$","path",null,{"d":"M18 40 V26 H30 V40","stroke":"currentColor","strokeWidth":"1.7"}],["$","path",null,{"d":"M24 8 V40","stroke":"currentColor","strokeWidth":"1.4","opacity":"0.55"}],["$","path",null,{"d":"M12 31 H36","stroke":"currentColor","strokeWidth":"1.4","opacity":"0.55"}]]}]}],["$","div",null,{"className":"relative mx-auto max-w-6xl px-5 pt-10 pb-10 sm:px-8 sm:pt-24 sm:pb-20 lg:pt-28","children":[["$","$L3",null,{"variant":"roll","instant":true,"delay":80,"children":[["$","p",null,{"className":"mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-brass","children":"Project inquiry"}],["$","span",null,{"className":"reveal-rule mb-5 block h-px w-16 bg-brass/80"}]]}],["$","$L3",null,{"variant":"swing","instant":true,"delay":180,"children":["$","h1",null,{"className":"max-w-3xl font-serif text-3xl font-semibold leading-[1.12] tracking-tight sm:text-5xl","children":"Tell us about the job."}]}],["$","$L3",null,{"variant":"up","instant":true,"delay":300,"children":["$","p",null,{"className":"mt-4 max-w-xl text-base leading-relaxed text-cream/85 sm:mt-5 sm:text-lg","children":"Call, email, or send the form with plans or photos. We will say if we are the right crew."}]}],null]}]]}],["$","$L4",null,{}],["$","section",null,{"id":"service-area","className":"scroll-mt-24 border-t border-line bg-cream","children":["$","div",null,{"className":"mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-20","children":[["$","$L3",null,{"variant":"roll","children":[["$","p",null,{"className":"text-xs font-semibold uppercase tracking-[0.22em] text-brass","children":"Where we work"}],["$","h2",null,{"className":"mt-3 max-w-2xl font-serif text-2xl font-semibold tracking-tight sm:text-4xl","children":"Aurora, Denver, and the south metro — including DTC and Castle Rock."}],["$","p",null,{"className":"mt-4 max-w-2xl leading-relaxed text-muted","children":"Click a city on the map. If your job is in one of these towns, we already know the drive. If it is farther, send it anyway — some frames are worth the miles."}]]}],["$","$L3",null,{"variant":"up","delay":120,"className":"mt-10","children":["$","$L5",null,{}]}]]}]}]]}],[["$","script","script-0",{"src":"/summit-frame-build/_next/static/chunks/3th597p-gxqgg.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#0b1d36"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Contact | Summit Frame & Build"}],["$","meta","1",{"name":"description","content":"Send a project inquiry to Summit Frame & Build for custom framing, additions, or structural work."}],["$","meta","2",{"property":"og:title","content":"Summit Frame & Build"}],["$","meta","3",{"property":"og:description","content":"Family-run framing crew in Aurora and the Denver metro. Custom homes, room additions, structural work, and outbuildings since 1989."}],["$","meta","4",{"property":"og:site_name","content":"Summit Frame & Build"}],"$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c"]}]}]}],"$L1d"]}],"isPartial":"$@1e","staleTime":"$a","varyParams":null},{"rsc":"$L1f","isPartial":"$@20","staleTime":"$a","varyParams":"$21"}],"isUpgradeableISRFallback":false,"a":"$@22","rootVaryParams":null,"needsRuntimeRequest":"$@23"}
-24:I[27201,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"IconMark"]
-25:I[39756,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"default"]
-26:I[37457,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"default"]
-8:null
-d:["$","meta","5",{"property":"og:locale","content":"en_US"}]
-e:["$","meta","6",{"property":"og:image","content":"https://summit-frame-build.vercel.app/opengraph-image?e6b4ea8b9bd2407b"}]
-f:["$","meta","7",{"property":"og:image:type","content":"image/png"}]
-10:["$","meta","8",{"property":"og:image:width","content":"1200"}]
-11:["$","meta","9",{"property":"og:image:height","content":"630"}]
-12:["$","meta","10",{"property":"og:type","content":"website"}]
-13:["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}]
-14:["$","meta","12",{"name":"twitter:title","content":"Summit Frame & Build"}]
-15:["$","meta","13",{"name":"twitter:description","content":"Family-run framing crew in Aurora and the Denver metro. Custom homes, room additions, structural work, and outbuildings since 1989."}]
-16:["$","meta","14",{"name":"twitter:image","content":"https://summit-frame-build.vercel.app/opengraph-image?e6b4ea8b9bd2407b"}]
-17:["$","meta","15",{"name":"twitter:image:type","content":"image/png"}]
-18:["$","meta","16",{"name":"twitter:image:width","content":"1200"}]
-19:["$","meta","17",{"name":"twitter:image:height","content":"630"}]
-1a:["$","link","18",{"rel":"icon","href":"/summit-frame-build/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
-1b:["$","link","19",{"rel":"icon","href":"/icon?3b5da386383c49aa","type":"image/png","sizes":"64x64"}]
-1c:["$","$L24","20",{}]
-1d:["$","meta",null,{"name":"next-size-adjust","content":""}]
-1f:["$","$1","c",{"children":[null,["$","$L25",null,{"parallelRouterKey":"children","template":["$","$L26",null,{}]}]]}]
-23:true
-a:300
-a:C
-22:0
-1e:"$undefined"
-20:"$undefined"
-9:"$undefined"
+2:I[5500,["/summit-frame-build/_next/static/chunks/0i743mlz8ttw2.js","/summit-frame-build/_next/static/chunks/0ksayikyxtake.js"],"Image"]
+3:I[59095,["/summit-frame-build/_next/static/chunks/0i743mlz8ttw2.js","/summit-frame-build/_next/static/chunks/0ksayikyxtake.js"],"default"]
+4:"$Sreact.suspense"
+5:I[63971,["/summit-frame-build/_next/static/chunks/0i743mlz8ttw2.js","/summit-frame-build/_next/static/chunks/0ksayikyxtake.js"],"default"]
+6:I[89207,["/summit-frame-build/_next/static/chunks/0i743mlz8ttw2.js","/summit-frame-build/_next/static/chunks/0ksayikyxtake.js"],"default"]
+7:I[22016,["/summit-frame-build/_next/static/chunks/0i743mlz8ttw2.js","/summit-frame-build/_next/static/chunks/0ksayikyxtake.js"],""]
+8:I[81289,["/summit-frame-build/_next/static/chunks/0i743mlz8ttw2.js","/summit-frame-build/_next/static/chunks/0ksayikyxtake.js"],"default"]
+9:I[97367,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+d:I[97367,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+e:I[97367,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+c:X
+25:X
+25:C
+0:{"buildId":"jBZWaPr8tul4grWSHg6DR","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"id":"main","children":[["$","section",null,{"className":"relative overflow-hidden bg-forest text-cream","children":[["$","div",null,{"className":"absolute inset-0","children":[["$","$L2",null,{"src":"/services/structural/struct-beam-v2.jpg","alt":"","fill":true,"priority":true,"sizes":"100vw","className":"hero-photo object-cover object-[center_40%] opacity-45"}],["$","div",null,{"className":"absolute inset-0 bg-gradient-to-r from-forest via-forest/85 to-forest/40"}]]}],["$","div",null,{"className":"hero-mark pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] items-center justify-center opacity-90 lg:flex","children":["$","svg",null,{"viewBox":"0 0 48 48","className":"text-cream/55 h-auto w-[72%]","fill":"none","aria-hidden":"true","children":[["$","path",null,{"d":"M8 22 L24 8 L40 22","stroke":"currentColor","strokeWidth":"2.2","strokeLinejoin":"miter"}],["$","path",null,{"d":"M12 22 V40 H36 V22","stroke":"currentColor","strokeWidth":"2.2"}],["$","path",null,{"d":"M18 40 V26 H30 V40","stroke":"currentColor","strokeWidth":"1.7"}],["$","path",null,{"d":"M24 8 V40","stroke":"currentColor","strokeWidth":"1.4","opacity":"0.55"}],["$","path",null,{"d":"M12 31 H36","stroke":"currentColor","strokeWidth":"1.4","opacity":"0.55"}]]}]}],["$","div",null,{"className":"relative mx-auto max-w-6xl px-5 pt-10 pb-10 sm:px-8 sm:pt-24 sm:pb-20 lg:pt-28","children":[["$","$L3",null,{"variant":"roll","instant":true,"delay":80,"children":[["$","p",null,{"className":"mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-brass","children":"Project inquiry"}],["$","span",null,{"className":"reveal-rule mb-5 block h-px w-16 bg-brass/80"}]]}],["$","$L3",null,{"variant":"swing","instant":true,"delay":180,"children":["$","h1",null,{"className":"max-w-3xl font-serif text-3xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.4rem]","children":"Tell us about the job."}]}],["$","$L3",null,{"variant":"up","instant":true,"delay":300,"children":["$","p",null,{"className":"mt-4 max-w-xl text-base leading-relaxed text-cream/85 sm:mt-5 sm:text-lg","children":"Call, text the address, or send the form with plans or photos. We will say if we are the right crew."}]}],null]}]]}],["$","$4",null,{"fallback":["$","div",null,{"className":"bg-cream px-5 py-20 text-center text-muted","children":"Loading the estimate desk…"}],"children":["$","$L5",null,{}]}],["$","$L6",null,{}],["$","section",null,{"id":"service-area","className":"scroll-mt-24 border-t border-line bg-cream","children":["$","div",null,{"className":"mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-20","children":[["$","$L3",null,{"variant":"roll","children":[["$","p",null,{"className":"text-xs font-semibold uppercase tracking-[0.22em] text-brass","children":"Where we work"}],["$","h2",null,{"className":"mt-3 max-w-2xl font-serif text-2xl font-semibold tracking-tight sm:text-4xl","children":"Aurora, Denver, and the south metro — including DTC and Castle Rock."}],["$","p",null,{"className":"mt-4 max-w-2xl leading-relaxed text-muted","children":["Click a city on the map, or open the"," ",["$","$L7",null,{"href":"/area","className":"font-semibold text-forest hover:text-forest-mid","children":"city notes"}],". If your job is in one of these towns, we already know the drive. If it is farther, send it anyway — some frames are worth the miles."]}]]}],["$","$L3",null,{"variant":"up","delay":120,"className":"mt-10","children":["$","$L8",null,{}]}]]}]}]]}],[["$","script","script-0",{"src":"/summit-frame-build/_next/static/chunks/0ksayikyxtake.js","async":true}]],["$","$L9",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Ld",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#0b1d36"}]]}],["$","div",null,{"hidden":true,"children":["$","$Le",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Contact | Summit Frame & Build"}],["$","meta","1",{"name":"description","content":"Send a project inquiry to Summit Frame & Build for custom framing, additions, or structural work."}],["$","meta","2",{"property":"og:title","content":"Summit Frame & Build"}],"$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20"]}]}]}],"$L21"]}],"isPartial":"$@22","staleTime":"$c","varyParams":null},{"rsc":"$L23","isPartial":"$@24","staleTime":"$c","varyParams":"$25"}],"isUpgradeableISRFallback":false,"a":"$@26","rootVaryParams":null,"needsRuntimeRequest":"$@27"}
+28:I[27201,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"IconMark"]
+29:I[39756,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"default"]
+2a:I[37457,["/summit-frame-build/_next/static/chunks/3fntmmi971322.js"],"default"]
+a:null
+f:["$","meta","3",{"property":"og:description","content":"Family-run framing crew in Aurora and the Denver metro. Custom homes, room additions, structural work, and outbuildings since 1989."}]
+10:["$","meta","4",{"property":"og:site_name","content":"Summit Frame & Build"}]
+11:["$","meta","5",{"property":"og:locale","content":"en_US"}]
+12:["$","meta","6",{"property":"og:image","content":"https://summit-frame-build.vercel.app/opengraph-image?e6b4ea8b9bd2407b"}]
+13:["$","meta","7",{"property":"og:image:type","content":"image/png"}]
+14:["$","meta","8",{"property":"og:image:width","content":"1200"}]
+15:["$","meta","9",{"property":"og:image:height","content":"630"}]
+16:["$","meta","10",{"property":"og:type","content":"website"}]
+17:["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}]
+18:["$","meta","12",{"name":"twitter:title","content":"Summit Frame & Build"}]
+19:["$","meta","13",{"name":"twitter:description","content":"Family-run framing crew in Aurora and the Denver metro. Custom homes, room additions, structural work, and outbuildings since 1989."}]
+1a:["$","meta","14",{"name":"twitter:image","content":"https://summit-frame-build.vercel.app/opengraph-image?e6b4ea8b9bd2407b"}]
+1b:["$","meta","15",{"name":"twitter:image:type","content":"image/png"}]
+1c:["$","meta","16",{"name":"twitter:image:width","content":"1200"}]
+1d:["$","meta","17",{"name":"twitter:image:height","content":"630"}]
+1e:["$","link","18",{"rel":"icon","href":"/summit-frame-build/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
+1f:["$","link","19",{"rel":"icon","href":"/icon?3b5da386383c49aa","type":"image/png","sizes":"64x64"}]
+20:["$","$L28","20",{}]
+21:["$","meta",null,{"name":"next-size-adjust","content":""}]
+23:["$","$1","c",{"children":[null,["$","$L29",null,{"parallelRouterKey":"children","template":["$","$L2a",null,{}]}]]}]
+27:true
+c:300
+c:C
+26:0
+22:"$undefined"
+24:"$undefined"
+b:"$undefined"
