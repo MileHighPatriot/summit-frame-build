@@ -2,16 +2,20 @@ import type { NextConfig } from "next";
 
 const repo = "summit-frame-build";
 const isPages = process.env.GITHUB_PAGES === "true";
+const basePath = isPages ? `/${repo}` : "";
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1", "localhost"],
   output: "export",
   images: { unoptimized: true },
   trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   ...(isPages
     ? {
-        basePath: `/${repo}`,
-        assetPrefix: `/${repo}`,
+        basePath,
+        assetPrefix: basePath,
       }
     : {}),
 };

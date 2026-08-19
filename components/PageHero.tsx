@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/SiteImage";
 import type { ReactNode } from "react";
 import Logo from "@/components/Logo";
 import Reveal from "@/components/Reveal";

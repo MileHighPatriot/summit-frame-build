@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/SiteImage";
 import Reveal from "@/components/Reveal";
 
 const points = [

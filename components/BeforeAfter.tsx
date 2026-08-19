@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/SiteImage";
 import { PointerEvent, useId, useRef, useState } from "react";
 
 type Shot = { src: string; alt: string };

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/SiteImage";
 import { useEffect, useId, useRef, useState, type RefObject } from "react";
 import Reveal from "@/components/Reveal";
 import { crew, type CrewMember } from "@/data/crew";

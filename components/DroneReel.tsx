@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { useSyncExternalStore } from "react";
+import SiteImage from "@/components/SiteImage";
+import { asset } from "@/lib/asset";
 
 function subscribeMotion(onChange: () => void) {
   const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -23,7 +24,7 @@ export default function DroneReel({ fill = false }: { fill?: boolean }) {
   return (
     <div aria-hidden={fill} className={frame}>
       {reduceMotion ? (
-        <Image
+        <SiteImage
           src="/hero/drone-poster.jpg"
           alt={
             fill
@@ -42,11 +43,11 @@ export default function DroneReel({ fill = false }: { fill?: boolean }) {
           muted
           playsInline
           preload="auto"
-          poster="/hero/drone-poster.jpg?v=1440"
+          poster={asset("/hero/drone-poster.jpg?v=1440")}
           width={2560}
           height={1440}
         >
-          <source src="/hero/drone-reveal.mp4?v=1440" type="video/mp4" />
+          <source src={asset("/hero/drone-reveal.mp4?v=1440")} type="video/mp4" />
         </video>
       )}
     </div>

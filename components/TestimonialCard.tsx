@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/SiteImage";
 import type { Testimonial } from "@/data/testimonials";
 
 export default function TestimonialCard({
