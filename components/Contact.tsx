@@ -1,16 +1,17 @@
 "use client";
 
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, ReactNode, useEffect, useMemo, useState } from "react";
 import Reveal from "@/components/Reveal";
-import { cityList, site } from "@/data/site";
-
-const projectTypes = [
-  "Custom home framing",
-  "Room addition",
-  "Structural work",
-  "Garage or outbuilding",
-  "Not sure / other",
-];
+import { visitWindows } from "@/data/estimator";
+import { cityList, site, smsHref } from "@/data/site";
+import {
+  estimatorPrefill,
+  projectTypes,
+  submitInquiry,
+} from "@/lib/inquiry";
+import { scopeWindow } from "@/data/estimator";
 
 const timelines = [
   "As soon as you can get to it",
@@ -32,10 +33,23 @@ const MAX_SIZE = 15 * 1024 * 1024;
 const ACCEPT = ".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/*,application/pdf";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  const params = useSearchParams();
+  const prefill = useMemo(() => estimatorPrefill(params), [params]);
+  const [submitted, setSubmitted] = useState<"sent" | "mailto" | null>(null);
+  const [sending, setSending] = useState(false);
   const [files, setFiles] = useState<File[]>([]);
   const [fileError, setFileError] = useState("");
   const [fileNames, setFileNames] = useState<string[]>([]);
+
+  const desk = useMemo(() => {
+    if (!prefill.typeId) return null;
+    return scopeWindow({
+      typeId: prefill.typeId,
+      sizeId: prefill.sizeId || "mid",
+      drawingId: prefill.drawingId || "photos",
+      city: prefill.city,
+    });
+  }, [prefill]);
 
   function addFiles(list: FileList | File[]) {
     const incoming = Array.from(list);
@@ -69,35 +83,32 @@ export default function Contact() {
     setFileError(error);
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const names = files.map((file) => file.name);
-    const body = [
-      `Name: ${data.get("name") ?? ""}`,
-      `Phone: ${data.get("phone") ?? ""}`,
-      `Email: ${data.get("email") ?? ""}`,
-      `Preferred contact: ${data.get("contactMethod") ?? ""}`,
-      `City: ${data.get("city") ?? ""}`,
-      `Address: ${data.get("address") || "Not given"}`,
-      `Project type: ${data.get("projectType") ?? ""}`,
-      `Timing: ${data.get("timeline") ?? ""}`,
-      `Drawings on hand: ${data.get("plans") ?? ""}`,
-      `Scope: ${data.get("scope") || "Not given"}`,
-      "",
-      String(data.get("message") ?? ""),
-      "",
-      names.length
-        ? `Please attach these files before sending: ${names.join(", ")}`
-        : "No files selected on the website.",
-    ].join("\n");
+    const fields = {
+      name: String(data.get("name") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      email: String(data.get("email") ?? ""),
+      contactMethod: String(data.get("contactMethod") ?? ""),
+      visitWindow: String(data.get("visitWindow") ?? ""),
+      city: String(data.get("city") ?? ""),
+      address: String(data.get("address") ?? ""),
+      projectType: String(data.get("projectType") ?? ""),
+      timeline: String(data.get("timeline") ?? ""),
+      plans: String(data.get("plans") ?? ""),
+      scope: String(data.get("scope") ?? ""),
+      message: String(data.get("message") ?? ""),
+      typeId: prefill.typeId,
+      sizeId: prefill.sizeId,
+      drawingId: prefill.drawingId,
+    };
 
-    const subject = `Framing estimate — ${data.get("city") ?? "job"}`;
-    const mailto = document.createElement("a");
-    mailto.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    mailto.click();
-    setFileNames(names);
-    setSubmitted(true);
+    setSending(true);
+    const result = await submitInquiry(fields, files);
+    setFileNames(files.map((file) => file.name));
+    setSubmitted(result);
+    setSending(false);
   }
 
   return (
@@ -105,7 +116,7 @@ export default function Contact() {
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-10 sm:px-8 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
         <Reveal variant="roll" className="order-2 lg:order-1">
           <div className="space-y-6 text-sm leading-relaxed">
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-3">
               <a
                 href={site.phoneHref}
                 className="border border-line bg-paper px-4 py-4 transition-colors hover:border-forest/40"
@@ -113,8 +124,19 @@ export default function Contact() {
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brass">
                   Call
                 </p>
-                <p className="mt-1 font-serif text-xl font-semibold text-ink">
+                <p className="mt-1 font-serif text-lg font-semibold text-ink">
                   {site.phoneDisplay}
+                </p>
+              </a>
+              <a
+                href={smsHref("Hi Summit — here is the job address and what we need framed.")}
+                className="border border-line bg-paper px-4 py-4 transition-colors hover:border-forest/40"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brass">
+                  Text
+                </p>
+                <p className="mt-1 font-serif text-lg font-semibold text-ink">
+                  Send the address
                 </p>
               </a>
               <a
@@ -124,7 +146,7 @@ export default function Contact() {
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brass">
                   Email
                 </p>
-                <p className="mt-1 break-all font-serif text-lg font-semibold text-ink">
+                <p className="mt-1 break-all font-serif text-base font-semibold text-ink">
                   {site.email}
                 </p>
               </a>
@@ -150,6 +172,13 @@ export default function Contact() {
                 <li>Photos or a plan set attached below, even if they are rough</li>
               </ul>
             </div>
+            <p className="text-muted">
+              Prefer to size the job first? Use the{" "}
+              <Link href="/#estimator" className="font-semibold text-forest">
+                scope desk
+              </Link>
+              .
+            </p>
             <dl className="grid gap-4 border-t border-line pt-6 sm:grid-cols-2">
               <div>
                 <dt className="font-semibold text-ink">Service area</dt>
@@ -187,30 +216,42 @@ export default function Contact() {
 
         <Reveal variant="swing" delay={120} className="order-1 lg:order-2">
         <div className="border border-line bg-paper p-6 sm:p-8">
+          {desk ? (
+            <div className="mb-6 border border-line bg-cream px-4 py-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brass">
+                From the scope desk
+              </p>
+              <p className="mt-2 font-serif text-lg font-semibold text-ink">
+                {desk.low}–{desk.high} {desk.unit}
+              </p>
+              <p className="mt-1 text-sm text-muted">{desk.headline}</p>
+            </div>
+          ) : null}
           {submitted ? (
             <div className="flex min-h-64 flex-col justify-center" role="status">
               <p className="font-serif text-2xl font-semibold">
-                Your email app should be open with this inquiry.
+                {submitted === "sent"
+                  ? "The inquiry is in."
+                  : "Your email app should be open with this inquiry."}
               </p>
               <p className="mt-3 leading-relaxed text-muted">
-                Send that message from your mail app. If files were selected,
-                attach them before you hit send
-                {fileNames.length ? `: ${fileNames.join(", ")}` : ""}.
+                {submitted === "sent"
+                  ? "We have the details. If this is the first note from the website, you may get a one-time confirmation email — open it so later inquiries land."
+                  : "Send that message from your mail app. The website could not reach the inbox directly, so the form opened email instead."}
+                {fileNames.length
+                  ? ` Attach these files if they did not go through: ${fileNames.join(", ")}.`
+                  : ""}{" "}
                 You can also call{" "}
                 <a className="font-semibold text-forest" href={site.phoneHref}>
                   {site.phoneDisplay}
                 </a>{" "}
-                or email{" "}
-                <a className="font-semibold text-forest" href={site.emailHref}>
-                  {site.email}
-                </a>
-                .
+                or text the address.
               </p>
               <button
                 type="button"
-                className="mt-6 w-fit rounded-sm border border-line px-4 py-2.5 text-sm font-semibold text-ink"
+                className="btn mt-6 w-fit border border-line text-ink"
                 onClick={() => {
-                  setSubmitted(false);
+                  setSubmitted(null);
                   setFiles([]);
                   setFileNames([]);
                   setFileError("");
@@ -261,18 +302,33 @@ export default function Contact() {
                 </Field>
               </div>
 
-              <Field label="Preferred way to reach you" htmlFor="contactMethod">
-                <select
-                  id="contactMethod"
-                  name="contactMethod"
-                  defaultValue="Phone"
-                  className={inputClass}
-                >
-                  <option>Phone</option>
-                  <option>Email</option>
-                  <option>Either — whatever is faster</option>
-                </select>
-              </Field>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label="Preferred way to reach you" htmlFor="contactMethod">
+                  <select
+                    id="contactMethod"
+                    name="contactMethod"
+                    defaultValue="Phone"
+                    className={inputClass}
+                  >
+                    <option>Phone</option>
+                    <option>Text</option>
+                    <option>Email</option>
+                    <option>Either — whatever is faster</option>
+                  </select>
+                </Field>
+                <Field label="Book a window" htmlFor="visitWindow">
+                  <select
+                    id="visitWindow"
+                    name="visitWindow"
+                    defaultValue={visitWindows[3]}
+                    className={inputClass}
+                  >
+                    {visitWindows.map((item) => (
+                      <option key={item}>{item}</option>
+                    ))}
+                  </select>
+                </Field>
+              </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Job site city" htmlFor="city" required>
@@ -281,6 +337,7 @@ export default function Contact() {
                     name="city"
                     type="text"
                     required
+                    defaultValue={prefill.city}
                     autoComplete="address-level2"
                     placeholder="Aurora, Littleton, Castle Rock…"
                     className={inputClass}
@@ -303,7 +360,7 @@ export default function Contact() {
                   id="projectType"
                   name="projectType"
                   required
-                  defaultValue=""
+                  defaultValue={prefill.projectType}
                   className={inputClass}
                 >
                   <option value="" disabled>
@@ -341,7 +398,7 @@ export default function Contact() {
                     id="plans"
                     name="plans"
                     required
-                    defaultValue=""
+                    defaultValue={prefill.plans}
                     className={inputClass}
                   >
                     <option value="" disabled>
@@ -364,6 +421,7 @@ export default function Contact() {
                   id="scope"
                   name="scope"
                   type="text"
+                  defaultValue={prefill.scope}
                   placeholder="e.g. 16×20 addition, two-story custom, 2-car garage, open a load-bearing wall"
                   className={inputClass}
                 />
@@ -392,14 +450,16 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="rounded-sm bg-forest px-6 py-3.5 text-sm font-semibold text-cream transition-colors hover:bg-forest-mid"
+                disabled={sending}
+                className="btn btn-shine bg-forest text-cream hover:bg-forest-mid disabled:opacity-60"
               >
-                Send project inquiry
+                {sending ? "Sending…" : "Send project inquiry"}
               </button>
               <p className="text-xs leading-relaxed text-muted">
-                Sending this opens your email to {site.email} with the details.
-                Attach the files there before you send, or call{" "}
-                {site.phoneDisplay}. It does not book a date or lock a price.
+                This sends the inquiry to {site.email}. If the inbox is not
+                reachable from the browser, your email app opens instead. It
+                does not book a date or lock a price. Call{" "}
+                {site.phoneDisplay} if you would rather talk.
               </p>
             </form>
           )}

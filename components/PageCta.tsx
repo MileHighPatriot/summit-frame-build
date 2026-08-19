@@ -36,7 +36,7 @@ export default function PageCta({
         <Reveal variant="swing" delay={140}>
           <Link
             href="/contact"
-            className="inline-flex shrink-0 items-center justify-center rounded-sm bg-brass px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-brass-hover"
+            className="btn btn-shine shrink-0 bg-brass text-ink hover:bg-brass-hover"
           >
             Get a Free Estimate
           </Link>

@@ -30,7 +30,7 @@ npm run build
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Homepage (hero only) |
+| `/` | Homepage |
 | `/work` | Case-study index |
 | `/work/[slug]` | Job write-up |
 | `/services` | Services and galleries |
@@ -40,7 +40,11 @@ npm run build
 | `/contact` | Project inquiry |
 | `/testimonials` | Reviews |
 | `/faq` | Common questions |
+| `/area` | Metro city index |
+| `/area/[slug]` | Local climate notes |
 
 ## Note
 
-Inquiry form is wired as UI only until an inbox is connected. Job photos are generated stand-ins for layout and storytelling — swap in real job-site photos for a live client.
+Inquiry form posts to the public inbox when the browser can reach it, and falls back to the device mail app. Job photos are generated stand-ins for layout and storytelling — swap in real job-site photos for a live client.
+
+Finish-line additions: scope desk, Front Range climate notes, `/area` city pages, job tracker timelines, and text-the-address contact.

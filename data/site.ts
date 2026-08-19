@@ -11,8 +11,10 @@ export const site = {
   phone: "7202606089",
   phoneDisplay: "(720) 260-6089",
   phoneHref: "tel:+17202606089",
+  smsHref: "sms:+17202606089",
   email: "kluper0393@outlook.com",
   emailHref: "mailto:kluper0393@outlook.com",
+  license: "Licensed & insured",
   cities: [
     "Aurora",
     "Denver",
@@ -31,9 +33,21 @@ export const site = {
 export const stats = [
   { value: "1989", label: "Family-run since" },
   { value: "4", label: "Trades we frame" },
-  { value: "Metro", label: "Aurora & Denver" },
-  { value: "One crew", label: "Estimate to last nail" },
+  { value: "11", label: "Metro cities" },
+  { value: "1", label: "Crew, pad to last nail" },
 ];
+
+export const trustMarks = [
+  { value: "1989", label: "Family crew, still on the tools" },
+  { value: "One crew", label: "Estimate to last nail" },
+  { value: "Metro", label: "Aurora through Castle Rock" },
+  { value: "Insured", label: "Licensed Colorado framing" },
+];
+
+export function smsHref(body?: string) {
+  if (!body) return site.smsHref;
+  return `${site.smsHref}?body=${encodeURIComponent(body)}`;
+}
 
 export function cityList(cities: string[] = site.cities) {
   if (cities.length === 0) return "";

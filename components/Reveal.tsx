@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type ReactNode } from "react";
+
+function subscribeMotion(onChange: () => void) {
+  const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+  media.addEventListener("change", onChange);
+  return () => media.removeEventListener("change", onChange);
+}
 
 export type RevealVariant = "up" | "swing" | "roll" | "fade" | "zoom";
 
@@ -20,13 +26,17 @@ export default function Reveal({
   instant = false,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useSyncExternalStore(
+    subscribeMotion,
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false,
+  );
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
-      setShown(true);
-      return;
+      const id = window.requestAnimationFrame(() => setShown(true));
+      return () => window.cancelAnimationFrame(id);
     }
 
     if (instant) {
@@ -49,7 +59,7 @@ export default function Reveal({
 
     io.observe(el);
     return () => io.disconnect();
-  }, [instant]);
+  }, [instant, reduce]);
 
   return (
     <div

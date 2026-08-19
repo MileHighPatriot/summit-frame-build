@@ -50,8 +50,10 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-ink ${
-                isActive(link.href) ? "text-ink" : "text-muted"
+              className={`relative text-sm font-medium transition-colors hover:text-ink ${
+                isActive(link.href)
+                  ? "text-ink after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:bg-brass"
+                  : "text-muted"
               }`}
               aria-current={isActive(link.href) ? "page" : undefined}
             >
@@ -66,7 +68,7 @@ export default function Header() {
           </a>
           <Link
             href="/contact"
-            className="rounded-sm bg-forest px-4 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-forest-mid"
+            className="btn btn-shine bg-forest px-4 py-2.5 text-cream hover:bg-forest-mid"
           >
             Free Estimate
           </Link>
@@ -107,6 +109,9 @@ export default function Header() {
               className="py-1 text-base font-semibold text-forest"
             >
               {site.phoneDisplay}
+            </a>
+            <a href={site.smsHref} className="py-1 text-base font-semibold text-forest">
+              Text the address
             </a>
             <a href={site.emailHref} className="py-1 text-sm text-muted">
               {site.email}

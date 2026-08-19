@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ServiceAreaMap from "@/components/ServiceAreaMap";
 
@@ -13,9 +14,12 @@ export default function ServiceArea() {
             Aurora, Denver, and the south metro — including DTC and Castle Rock.
           </h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-            Click a city on the map. If your job is in one of these towns, we
-            already know the drive. If it is farther, send it anyway — some
-            frames are worth the miles.
+            Click a city on the map, or open the{" "}
+            <Link href="/area" className="font-semibold text-forest hover:text-forest-mid">
+              city notes
+            </Link>
+            . If your job is in one of these towns, we already know the drive.
+            If it is farther, send it anyway — some frames are worth the miles.
           </p>
         </Reveal>
         <Reveal variant="up" delay={120} className="mt-10">

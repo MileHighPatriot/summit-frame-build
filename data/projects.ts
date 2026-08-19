@@ -17,6 +17,7 @@ export type Project = {
     before: { src: string; alt: string };
     after: { src: string; alt: string };
   };
+  phases: { label: string; when: string; note: string }[];
 };
 
 export const projects: Project[] = [
@@ -75,6 +76,13 @@ export const projects: Project[] = [
         alt: "Same ranch after the one-story addition was framed and sheathed",
       },
     },
+    phases: [
+      { label: "Inquiry", when: "Mar 2024", note: "Address, a sketch, and photos of the eave." },
+      { label: "Site walk", when: "Week of Mar 11", note: "Measured the old ranch and the yard access." },
+      { label: "Estimate", when: "Mar 18", note: "Scope, exclusions, and a four-week frame window." },
+      { label: "On frame", when: "Apr 1–26", note: "Stem wall, walls, roof tuck, opening into the house." },
+      { label: "Walk-through", when: "Apr 26", note: "Square room, clean tie-in, next trades could walk." },
+    ],
   },
   {
     slug: "denver-custom-home",
@@ -135,6 +143,13 @@ export const projects: Project[] = [
         alt: "Same lot after the two-story custom home was framed and trussed",
       },
     },
+    phases: [
+      { label: "Inquiry", when: "May 2023", note: "Full plan set and a windy infill lot." },
+      { label: "Pad walk", when: "Week of May 22", note: "Checked the slab against the first-floor layout." },
+      { label: "Estimate", when: "Jun 2", note: "Eight weeks on frame, weather named in the letter." },
+      { label: "On frame", when: "Jun–Aug", note: "Walls, second floor, trusses, headers as drawn." },
+      { label: "Walk-through", when: "Aug 2023", note: "Square house. Roofer and drywall inherited a clean shell." },
+    ],
   },
   {
     slug: "highlands-ranch-beam",
@@ -195,9 +210,22 @@ export const projects: Project[] = [
         alt: "Same kitchen after the wall was opened and a structural beam was set",
       },
     },
+    phases: [
+      { label: "Inquiry", when: "Jan 2025", note: "Occupied house, wall between kitchen and living room." },
+      { label: "Site walk", when: "Week of Jan 13", note: "Shoring plan and basement load path." },
+      { label: "Estimate", when: "Jan 16", note: "Five working days. Engineer stamp by the owner’s designer." },
+      { label: "On frame", when: "Jan 27–31", note: "Shore, cut, doubled LVL, steel below." },
+      { label: "Walk-through", when: "Jan 31", note: "Opening square. Floor above did not settle." },
+    ],
   },
 ];
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
+}
+
+export function projectsInCity(location: string) {
+  return projects.filter(
+    (project) => project.location.toLowerCase() === location.toLowerCase(),
+  );
 }

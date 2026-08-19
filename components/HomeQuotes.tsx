@@ -13,7 +13,7 @@ export default function HomeQuotes() {
             Testimonials
           </p>
           <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="max-w-xl font-serif text-2xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="max-w-xl font-serif text-3xl font-semibold tracking-tight sm:text-5xl">
               What homeowners say about the work.
             </h2>
             <Link

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import BeforeAfter from "@/components/BeforeAfter";
 import JobSnapshot from "@/components/JobSnapshot";
+import JobStatus from "@/components/JobStatus";
 import PageCta from "@/components/PageCta";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -45,6 +46,29 @@ export default async function ProjectPage({ params }: PageProps) {
           lede={project.summary}
           image={project.cover.src}
         />
+
+        <div className="border-b border-line bg-ink">
+          <div className="mx-auto max-w-6xl px-5 py-6 sm:px-8">
+            <div className="filmstrip no-scrollbar">
+              {[project.cover, ...project.gallery.filter((image) => image.src !== project.cover.src)].map(
+                (image) => (
+                  <figure
+                    key={image.src}
+                    className="relative aspect-[16/10] overflow-hidden bg-forest"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      sizes="22rem"
+                      className="object-cover"
+                    />
+                  </figure>
+                ),
+              )}
+            </div>
+          </div>
+        </div>
 
         <div className="bg-cream px-5 py-12 sm:px-8 sm:py-16">
           <div className="mx-auto max-w-6xl">
@@ -95,26 +119,9 @@ export default async function ProjectPage({ params }: PageProps) {
             </Reveal>
           </div>
         </div>
-        <div className="border-t border-line bg-paper px-5 py-16 sm:px-8 sm:py-20">
-          <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-3">
-            {project.gallery
-              .filter((image) => image.src !== project.cover.src)
-              .map((image, index) => (
-              <Reveal key={image.src} variant="zoom" delay={index * 90}>
-                <figure className="reveal-media relative aspect-[4/3] overflow-hidden bg-line">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(min-width: 640px) 30vw, 100vw"
-                    className="object-cover"
-                  />
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        </div>
       </article>
+
+      <JobStatus project={project} />
 
       <section className="border-t border-line bg-cream px-5 py-16 sm:px-8">
         <div className="mx-auto max-w-6xl">

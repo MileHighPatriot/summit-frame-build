@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
   highways,
@@ -95,6 +96,12 @@ export default function ServiceAreaMap() {
           {active.name}
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-muted">{active.note}</p>
+        <Link
+          href={`/area/${active.id}`}
+          className="mt-4 inline-block text-sm font-semibold text-forest hover:text-forest-mid"
+        >
+          {active.shortName} climate notes
+        </Link>
         <ul className="mt-6 grid gap-2 sm:grid-cols-2">
           {serviceCities.map((city) => {
             const selected = city.id === activeId;

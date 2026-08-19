@@ -18,9 +18,12 @@ export default function RouteWipe() {
       return;
     }
 
-    setOn(true);
+    const start = window.requestAnimationFrame(() => setOn(true));
     const timer = window.setTimeout(() => setOn(false), 720);
-    return () => window.clearTimeout(timer);
+    return () => {
+      window.cancelAnimationFrame(start);
+      window.clearTimeout(timer);
+    };
   }, [pathname]);
 
   return <div className={`route-wipe${on ? " is-on" : ""}`} aria-hidden="true" />;

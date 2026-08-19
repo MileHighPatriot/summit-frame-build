@@ -1,22 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+function subscribeMotion(onChange: () => void) {
+  const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+  media.addEventListener("change", onChange);
+  return () => media.removeEventListener("change", onChange);
+}
 
 export default function DroneReel({ fill = false }: { fill?: boolean }) {
-  const [reduceMotion, setReduceMotion] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduceMotion(media.matches);
-
-    function onChange() {
-      setReduceMotion(media.matches);
-    }
-
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, []);
+  const reduceMotion = useSyncExternalStore(
+    subscribeMotion,
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    () => false,
+  );
 
   const frame = fill
     ? "absolute inset-0 overflow-hidden bg-ink"

@@ -1,7 +1,8 @@
 import Link from "next/link";
+import CountUp from "@/components/CountUp";
 import DroneReel from "@/components/DroneReel";
 import Reveal from "@/components/Reveal";
-import { site, stats } from "@/data/site";
+import { smsHref, stats } from "@/data/site";
 
 export default function Hero() {
   return (
@@ -20,7 +21,7 @@ export default function Hero() {
           <span className="reveal-rule mb-4 block h-px w-16 bg-brass/80 sm:mb-5" />
         </Reveal>
         <Reveal variant="swing" instant delay={180}>
-          <h1 className="max-w-3xl font-serif text-[2.15rem] font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-[3.6rem]">
+          <h1 className="max-w-3xl font-serif text-[2.4rem] font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-[4.15rem]">
             Solid framing for homes that last.
           </h1>
         </Reveal>
@@ -34,21 +35,21 @@ export default function Hero() {
           <div className="mt-6 hidden flex-col gap-3 sm:mt-9 sm:flex sm:flex-row sm:items-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-sm bg-brass px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-brass-hover"
+              className="btn btn-shine bg-brass text-ink hover:bg-brass-hover"
             >
               Get a Free Estimate
             </Link>
             <Link
               href="/work"
-              className="inline-flex items-center justify-center rounded-sm border border-cream/25 px-6 py-3.5 text-sm font-semibold text-cream transition-colors hover:border-cream/50 hover:bg-white/5"
+              className="btn border border-cream/25 text-cream hover:border-cream/50 hover:bg-white/5"
             >
               See selected work
             </Link>
             <a
-              href={site.phoneHref}
+              href={smsHref("Hi Summit — I have a framing job in the Denver metro.")}
               className="inline-flex items-center justify-center px-1 py-3.5 text-sm font-semibold text-cream/90 underline-offset-4 hover:text-cream hover:underline"
             >
-              {site.phoneDisplay}
+              Text the address
             </a>
           </div>
         </Reveal>
@@ -64,7 +65,7 @@ export default function Hero() {
               {stat.label}
             </dt>
             <dd className="mt-1 font-serif text-xl font-semibold sm:text-2xl">
-              {stat.value}
+              <CountUp value={stat.value} />
             </dd>
           </div>
         ))}

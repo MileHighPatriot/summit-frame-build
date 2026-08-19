@@ -22,13 +22,14 @@ const steps = [
 
 export default function HomeProcess() {
   return (
-    <section className="bg-forest px-5 py-10 text-cream sm:px-8 sm:py-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden bg-forest px-5 py-12 text-cream sm:px-8 sm:py-24">
+      <div className="steel-grid pointer-events-none absolute inset-0 opacity-70" />
+      <div className="relative mx-auto max-w-6xl">
         <Reveal variant="roll">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brass">
             How we work
           </p>
-          <h2 className="mt-3 max-w-xl font-serif text-2xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-3 max-w-xl font-serif text-3xl font-semibold tracking-tight sm:text-5xl">
             Four steps. No sales office.
           </h2>
         </Reveal>

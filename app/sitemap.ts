@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/data/projects";
+import { serviceCities } from "@/data/service-area";
 import { site } from "@/data/site";
 
 export const dynamic = "force-static";
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/testimonials",
     "/faq",
+    "/area",
   ].map((path) => ({
     url: `${site.url}${path}`,
     lastModified,
@@ -24,5 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}/work/${project.slug}`,
     lastModified,
   }));
-  return [...staticRoutes, ...projectRoutes];
+  const areaRoutes = serviceCities.map((city) => ({
+    url: `${site.url}/area/${city.id}`,
+    lastModified,
+  }));
+  return [...staticRoutes, ...projectRoutes, ...areaRoutes];
 }

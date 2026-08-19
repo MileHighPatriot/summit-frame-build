@@ -9,6 +9,7 @@ export const primaryNav = [
 
 export const footerNav = [
   ...primaryNav,
+  { href: "/area", label: "Service area" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/faq", label: "FAQ" },
 ];

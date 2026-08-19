@@ -32,7 +32,7 @@ export default function HomeOnSite() {
             On the tools
           </p>
           <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="max-w-xl font-serif text-2xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="max-w-xl font-serif text-3xl font-semibold tracking-tight sm:text-5xl">
               The crew on a real pad, not a showroom.
             </h2>
             <Link

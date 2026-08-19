@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import { footerNav } from "@/data/nav";
-import { site } from "@/data/site";
+import { site, smsHref } from "@/data/site";
 
 export default function Footer() {
   return (
@@ -20,11 +20,18 @@ export default function Footer() {
             <a href={site.phoneHref} className="text-cream hover:text-brass">
               {site.phoneDisplay}
             </a>
+            <span className="text-cream/40"> · </span>
+            <a href={smsHref("Hi Summit — I have a framing job.")} className="text-cream hover:text-brass">
+              Text us
+            </a>
           </p>
           <p className="mt-1 text-sm">
             <a href={site.emailHref} className="text-cream/75 hover:text-cream">
               {site.email}
             </a>
+          </p>
+          <p className="mt-4 text-xs uppercase tracking-[0.16em] text-cream/45">
+            Family-run since 1989 · {site.license}
           </p>
         </div>
 

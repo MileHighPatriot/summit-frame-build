@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { site } from "@/data/site";
+import { site, smsHref } from "@/data/site";
 
 const items = [
   { href: "/work", label: "Work" },
-  { href: "/services", label: "Services" },
   { href: "/contact", label: "Estimate" },
 ];
 
@@ -35,6 +34,13 @@ export default function MobileDock() {
           {item.label}
         </Link>
       ))}
+      <a
+        href={smsHref("Hi Summit — here is the job address.")}
+        className="flex min-h-12 items-center justify-center px-1 pt-2 text-[11px] font-semibold tracking-wide text-forest"
+        style={{ paddingBottom: "max(0.55rem, env(safe-area-inset-bottom))" }}
+      >
+        Text
+      </a>
       <a
         href={site.phoneHref}
         className="flex min-h-12 items-center justify-center px-1 pt-2 text-[11px] font-semibold tracking-wide text-forest"

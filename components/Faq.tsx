@@ -24,7 +24,17 @@ const items = [
   {
     question: "Where do you work?",
     answer:
-      "Aurora, Denver, and nearby Front Range communities — Centennial, Lakewood, Highlands Ranch, and similar. If you are farther out, ask. Some jobs are worth the drive.",
+      "Aurora, Denver, and nearby Front Range communities — Centennial, Lakewood, Highlands Ranch, and similar. City pages under Service area list the snow and wind notes we walk with. If you are farther out, ask. Some jobs are worth the drive.",
+  },
+  {
+    question: "Is the scope desk a bid?",
+    answer:
+      "No. It is a typical frame window so you know if the job is in our range. The number moves after we see the lot, the drawings, and the weather. A bid is a letter after a walk — not a form.",
+  },
+  {
+    question: "Can I text instead of filling out the form?",
+    answer:
+      "Yes. Text the address and what you want framed. We will tell you if we are the right crew and whether we need a lot walk or a plans review first.",
   },
 ];
 

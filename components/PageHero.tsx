@@ -44,7 +44,7 @@ export default function PageHero({
           <span className="reveal-rule mb-5 block h-px w-16 bg-brass/80" />
         </Reveal>
         <Reveal variant="swing" instant delay={180}>
-          <h1 className="max-w-3xl font-serif text-3xl font-semibold leading-[1.12] tracking-tight sm:text-5xl">
+          <h1 className="max-w-3xl font-serif text-3xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.4rem]">
             {title}
           </h1>
         </Reveal>
