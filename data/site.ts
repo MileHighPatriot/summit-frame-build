@@ -14,7 +14,7 @@ export const site = {
   smsHref: "sms:+17202606089",
   email: "kluper0393@outlook.com",
   emailHref: "mailto:kluper0393@outlook.com",
-  license: "Licensed & insured",
+  license: "Insured · family crew",
   cities: [
     "Aurora",
     "Denver",
@@ -41,7 +41,7 @@ export const trustMarks = [
   { value: "1989", label: "Family crew, still on the tools" },
   { value: "One crew", label: "Estimate to last nail" },
   { value: "Metro", label: "Aurora through Castle Rock" },
-  { value: "Insured", label: "Licensed Colorado framing" },
+  { value: "Insured", label: "Crew on the tools, not a bid desk" },
 ];
 
 export function smsHref(body?: string) {
