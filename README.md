@@ -1,17 +1,17 @@
 # Summit Frame & Build
 
-Portfolio case study: a production-style marketing site for a family framing crew in Aurora and the Denver metro.
+A concept marketing site for a fictional, family-run framing company in Aurora, Colorado. Built as a portfolio piece to show editorial web design for a trade business. The people, projects, and reviews are illustrative, and the photography is generated.
 
-Built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**.
+Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Motion**, and **Lenis**.
 
-## What this project shows
+## Highlights
 
-- Brand system (forest / brass / paper) applied across homepage, case studies, and 404
-- Content modeled as data (`data/projects.ts`, `data/site.ts`) instead of copy pasted into pages
-- Dynamic routes with `generateStaticParams` and per-page metadata
-- Local SEO: JSON-LD `HomeAndConstructionBusiness`, sitemap, robots, Open Graph image
-- Accessibility: skip link, focus styles, reduced-motion, semantic headings
-- Image-led layout with `next/image` (priority hero, sized galleries)
+- Editorial design system: warm neutrals, Fraunces + Inter Tight, fluid type scale, 12-column grid (`app/globals.css`)
+- Full-bleed video hero, scroll-linked parallax imagery, and restrained reveal motion that respects `prefers-reduced-motion`
+- Services hover list, magazine-style case studies, and an accessible, keyboard-operable before/after slider
+- Content modeled as data (`data/`) rather than hard-coded in pages
+- Working contact form via [Web3Forms](https://web3forms.com) on a fully static export
+- Local SEO: JSON-LD, sitemap, robots, and a generated Open Graph image
 
 ## Run it
 
@@ -22,25 +22,34 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Contact form
+
+Create `.env.local` with a free Web3Forms access key (it is safe to expose publicly):
+
 ```bash
-npm run build
+NEXT_PUBLIC_WEB3FORMS_KEY=your-access-key
 ```
+
+Without a key, the form falls back to opening the visitor's email app with the details filled in.
+
+## Publish to GitHub Pages
+
+```bash
+npm run pages
+```
+
+This builds with the `/summit-frame-build` base path and writes the static site to `docs/`.
 
 ## Map
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Homepage (hero only) |
-| `/work` | Case-study index |
-| `/work/[slug]` | Job write-up |
+| `/` | Home |
+| `/work` | Project index |
+| `/work/[slug]` | Case study |
 | `/services` | Services and galleries |
 | `/process` | How we work |
-| `/about` | Company history |
-| `/crew` | Names, photos, and positions |
-| `/contact` | Project inquiry |
+| `/about` | Story, values, and crew |
 | `/testimonials` | Reviews |
 | `/faq` | Common questions |
-
-## Note
-
-Inquiry form is wired as UI only until an inbox is connected. Job photos are generated stand-ins for layout and storytelling — swap in real job-site photos for a live client.
+| `/contact` | Project inquiry |

@@ -1,31 +1,24 @@
-import Link from "next/link";
-import PageHero from "@/components/PageHero";
+import Button from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <main id="main">
-      <PageHero
-        eyebrow="404"
-        title="That page is not in the plans."
-        lede="The link is missing or the page moved. The work is still here."
-        image="/services/framing/home-shell.jpg"
-        actions={
-          <>
-            <Link
-              href="/"
-              className="inline-flex items-center justify-center rounded-sm bg-brass px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-brass-hover"
-            >
-              Back to the homepage
-            </Link>
-            <Link
-              href="/work"
-              className="inline-flex items-center justify-center rounded-sm border border-cream/25 px-6 py-3.5 text-sm font-semibold text-cream transition-colors hover:border-cream/50 hover:bg-white/5"
-            >
-              See selected work
-            </Link>
-          </>
-        }
-      />
+    <main id="main" className="flex min-h-[90svh] items-end pt-36 pb-20 sm:pb-28">
+      <div className="container-x">
+        <p className="t-eyebrow text-stone">Error 404</p>
+        <h1 className="t-display mt-8 max-w-[10ch]">
+          Not in the <em className="text-cedar">plans.</em>
+        </h1>
+        <p className="t-lede mt-10 max-w-lg text-stone">
+          The page you&rsquo;re looking for has moved or never existed. The
+          work is still here.
+        </p>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Button href="/">Back to home</Button>
+          <Button href="/work" variant="outline">
+            View our work
+          </Button>
+        </div>
+      </div>
     </main>
   );
 }

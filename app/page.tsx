@@ -1,22 +1,19 @@
-import Hero from "@/components/Hero";
-import HomeServices from "@/components/HomeServices";
-import HomeOnSite from "@/components/HomeOnSite";
-import HomeProcess from "@/components/HomeProcess";
-import HomeQuotes from "@/components/HomeQuotes";
-import PageCta from "@/components/PageCta";
+import FeaturedProject from "@/components/home/FeaturedProject";
+import Hero from "@/components/home/Hero";
+import Intro from "@/components/home/Intro";
+import Process from "@/components/home/Process";
+import Quote from "@/components/home/Quote";
+import ServiceList from "@/components/home/ServiceList";
 
 export default function Home() {
   return (
     <main id="main">
       <Hero />
-      <HomeServices />
-      <HomeOnSite />
-      <HomeProcess />
-      <HomeQuotes />
-      <PageCta
-        title="Need something framed?"
-        lede="Call or send the address and the scope. We will tell you if we are the right crew."
-      />
+      <Intro />
+      <FeaturedProject />
+      <ServiceList />
+      <Process />
+      <Quote />
     </main>
   );
 }

@@ -1,9 +1,11 @@
 export type Project = {
   slug: string;
+  name: string;
   title: string;
   location: string;
   type: string;
   year: string;
+  size: string;
   duration: string;
   summary: string;
   challenge: string;
@@ -21,87 +23,33 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "aurora-ranch-addition",
-    title: "Ranch addition that lines up with the old house",
-    location: "Aurora",
-    type: "Room addition",
-    year: "2024",
-    duration: "4 weeks on frame",
-    summary:
-      "A one-story family-room addition tied into a 1970s ranch — new walls, a roof that tucks under the existing eave, and an opening into the old living room.",
-    challenge:
-      "The existing ranch was out of square in places, and the owners wanted the new room to feel like it had always been there. The roof had to meet the original eave without a step that would leak or look bolted on.",
-    approach:
-      "We walked the existing bearing walls, set a new stem wall, and framed the addition so the roof tucked under the eave. The opening into the house got a proper header and king studs. Layout was checked against the old floor so the new doorway sat on the same plane.",
-    result:
-      "The addition sits flush with the ranch. Next trades walked into a square room with a clean roof tie-in and an opening that did not need to be rebuilt.",
-    scope: [
-      "Stem wall and sill layout on the existing house",
-      "Wall framing and sheathing for a one-story family room",
-      "Roof framed to tuck under the original eave",
-      "Header, king, and jack studs at the opening into the old living room",
-    ],
-    notIncluded: [
-      "Excavation and concrete by others",
-      "Windows, doors, and exterior finish",
-      "Roofing, insulation, and drywall",
-      "Interior trim and paint",
-    ],
-    cover: {
-      src: "/work/before-after/aurora-ranch-after.jpg",
-      alt: "Sheathed family-room addition tied into a 1970s Aurora ranch",
-    },
-    gallery: [
-      {
-        src: "/work/before-after/aurora-ranch-before.jpg",
-        alt: "Rear of the ranch before the addition",
-      },
-      {
-        src: "/services/additions/add-roof-tie-v2.jpg",
-        alt: "Roof tie-in at the existing eave",
-      },
-      {
-        src: "/services/additions/add-into-house.jpg",
-        alt: "New room opening into the finished living room",
-      },
-    ],
-    beforeAfter: {
-      before: {
-        src: "/work/before-after/aurora-ranch-before.jpg",
-        alt: "Backyard of a 1970s Aurora ranch before the addition was framed",
-      },
-      after: {
-        src: "/work/before-after/aurora-ranch-after.jpg",
-        alt: "Same ranch after the one-story addition was framed and sheathed",
-      },
-    },
-  },
-  {
     slug: "denver-custom-home",
-    title: "Custom home framed from the slab up",
+    name: "The Denver Two-Story",
+    title: "A custom home framed from the slab up",
     location: "Denver",
-    type: "Custom home framing",
+    type: "Custom home",
     year: "2023",
-    duration: "8 weeks on frame",
+    size: "3,400 sq ft",
+    duration: "8 weeks",
     summary:
-      "A two-story custom home: first walls on the slab, then floors, then roof trusses. Layout stayed true so the finish trades inherited a square house.",
+      "A two-story custom home with wide openings, an open stair, and a roof that had to land clean for the roofer. Walls, floors, and trusses, framed in one continuous sequence.",
     challenge:
-      "A full custom plan with wide openings and a roof that had to land clean for the roofer. The lot is windy. Walls had to be plumbed and braced before the second floor went on.",
+      "The plan called for wide, unsupported openings on the main floor and a complex roof over an open stair. The lot sits exposed to the west, so every wall had to be plumbed and braced for wind before the second floor went on.",
     approach:
-      "We snapped the first-floor layout on the slab, stood walls, and set the second-floor joists before the roof package. Headers and LVLs were set as drawn. Trusses went on after the walls were braced for Front Range wind.",
+      "We snapped the first-floor layout directly on the slab, stood and braced the walls, then set the second-floor system and stair opening. LVL headers went in exactly as engineered. The truss package was set only after the structure below was tight and true.",
     result:
-      "The house stood square. Openings matched the plan. The roofer and the drywall crew did not have to argue with the frame.",
+      "The house stood square from corner to corner. Every opening matched the plan, and the roofing and drywall crews started on schedule without a single framing callback.",
     scope: [
-      "First-floor layout and wall package on the slab",
-      "Second-floor joists, stairs opening, and load path",
-      "Roof trusses set and braced",
-      "Headers and LVLs at the wide openings on the plan",
+      "First-floor layout and wall package",
+      "Second-floor joists and stair opening",
+      "LVL headers at wide openings",
+      "Roof trusses, set and braced",
     ],
     notIncluded: [
-      "Foundation and slab by others",
-      "Windows, doors, and exterior siding",
-      "Roofing and mechanicals",
-      "Insulation, drywall, and finish carpentry",
+      "Foundation and slab",
+      "Windows, doors, and siding",
+      "Roofing and mechanical",
+      "Insulation, drywall, and finish",
     ],
     cover: {
       src: "/work/before-after/denver-home-after.jpg",
@@ -109,16 +57,12 @@ export const projects: Project[] = [
     },
     gallery: [
       {
-        src: "/work/before-after/denver-home-before.jpg",
-        alt: "Empty lot and slab before walls went up",
-      },
-      {
         src: "/services/framing/home-slab.jpg",
-        alt: "First exterior walls on the slab",
+        alt: "First exterior walls standing on the slab",
       },
       {
         src: "/services/framing/home-interior.jpg",
-        alt: "Interior studs, joists, and header",
+        alt: "Interior studs, joists, and an LVL header",
       },
       {
         src: "/services/framing/home-trusses.jpg",
@@ -137,31 +81,91 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "highlands-ranch-beam",
-    title: "Load-bearing wall opened for a wider kitchen",
-    location: "Highlands Ranch",
-    type: "Structural work",
-    year: "2025",
-    duration: "5 working days",
+    slug: "aurora-ranch-addition",
+    name: "The Aurora Ranch",
+    title: "A family room that looks like it was always there",
+    location: "Aurora",
+    type: "Addition",
+    year: "2024",
+    size: "520 sq ft",
+    duration: "4 weeks",
     summary:
-      "A homeowner wanted the wall between kitchen and living room gone. We shored the floor, set a beam, and left the span carrying what it used to carry.",
+      "A single-story family room added to a 1970s ranch, with a roof that tucks under the original eave and a wide new opening into the existing living room.",
     challenge:
-      "The wall was load-bearing. The house stayed occupied. The new opening had to be wide enough for the kitchen they wanted without guessing at the load path.",
+      "The original house was out of square in places, and the owners wanted the addition to feel original, not bolted on. The new roof had to meet the old eave without a step that would leak or look like an afterthought.",
     approach:
-      "Temporary shoring went in first. We cut the wall, set a doubled LVL with jack and king studs, and transferred the load. In the basement, a steel beam and lally columns picked up the span where the old wall had sat.",
+      "We surveyed the existing bearing walls first, then laid out the addition to the house as built rather than as drawn. The roof was framed to tuck beneath the original eave, and the opening into the living room got a properly sized header with king and jack studs.",
     result:
-      "The opening is square. The floor above did not settle. The kitchen remodel started on a structure that was already finished.",
+      "The addition reads as part of the original home. The floors meet on one plane, the roofline is continuous, and the finish trades walked into a room that was already square.",
     scope: [
-      "Temporary shoring in an occupied house",
-      "Removal of the load-bearing wall between kitchen and living room",
-      "Doubled LVL header with jack and king studs",
-      "Basement steel beam and columns on the same load path",
+      "Sill layout tied to the existing house",
+      "Wall framing and sheathing",
+      "Roof framed beneath the original eave",
+      "Header and opening into the living room",
     ],
     notIncluded: [
-      "Kitchen cabinets, counters, and appliances",
+      "Excavation and concrete",
+      "Windows, doors, and exterior finish",
+      "Roofing, insulation, and drywall",
+      "Interior trim and paint",
+    ],
+    cover: {
+      src: "/work/before-after/aurora-ranch-after.jpg",
+      alt: "Sheathed family-room addition tied into a 1970s Aurora ranch",
+    },
+    gallery: [
+      {
+        src: "/services/additions/add-roof-tie-v2.jpg",
+        alt: "Roof tie-in at the existing eave",
+      },
+      {
+        src: "/services/additions/add-into-house.jpg",
+        alt: "New room opening into the finished living room",
+      },
+      {
+        src: "/services/additions/add-ranch-v2.jpg",
+        alt: "Addition framing against the original ranch",
+      },
+    ],
+    beforeAfter: {
+      before: {
+        src: "/work/before-after/aurora-ranch-before.jpg",
+        alt: "Backyard of a 1970s Aurora ranch before the addition was framed",
+      },
+      after: {
+        src: "/work/before-after/aurora-ranch-after.jpg",
+        alt: "Same ranch after the one-story addition was framed and sheathed",
+      },
+    },
+  },
+  {
+    slug: "highlands-ranch-beam",
+    name: "The Highlands Ranch Kitchen",
+    title: "A load-bearing wall, opened for a kitchen",
+    location: "Highlands Ranch",
+    type: "Structural",
+    year: "2025",
+    size: "18 ft clear span",
+    duration: "5 days",
+    summary:
+      "The owners wanted the wall between the kitchen and living room gone. We shored the floor, set a new beam, and transferred the load to steel in the basement, all while the family lived at home.",
+    challenge:
+      "The wall carried the floor above, and the house stayed occupied throughout. The opening had to be wide enough for the kitchen the owners had designed, with a load path that was engineered, not assumed.",
+    approach:
+      "Temporary shoring went in first. We removed the wall, set a doubled LVL with king and jack studs, and transferred the load. Below, a new steel beam and columns picked up the span on the same line.",
+    result:
+      "The opening is clean and square, the floor above didn't move, and the kitchen remodel started on a structure that was already finished.",
+    scope: [
+      "Temporary shoring in an occupied home",
+      "Removal of the load-bearing wall",
+      "Doubled LVL beam with king and jack studs",
+      "Basement steel beam and columns",
+    ],
+    notIncluded: [
+      "Cabinets, counters, and appliances",
       "Drywall, paint, and flooring",
-      "Electrical and plumbing relocates",
-      "Engineer stamp — supplied by the owner’s designer",
+      "Electrical and plumbing",
+      "Engineering, by the owner's designer",
     ],
     cover: {
       src: "/work/before-after/highlands-kitchen-after.jpg",
@@ -169,26 +173,22 @@ export const projects: Project[] = [
     },
     gallery: [
       {
-        src: "/work/before-after/highlands-kitchen-before.jpg",
-        alt: "Kitchen closed off by the original load-bearing wall",
-      },
-      {
         src: "/services/structural/struct-steel-v2.jpg",
         alt: "Steel beam and columns in the basement",
       },
       {
         src: "/services/structural/struct-basement.jpg",
-        alt: "Mid-span beam and posts under floor joists",
+        alt: "Mid-span beam and posts under the floor joists",
       },
       {
-        src: "/services/structural/struct-hardware.jpg",
-        alt: "Hold-down hardware on the wood frame",
+        src: "/services/structural/struct-beam-v2.jpg",
+        alt: "Doubled LVL header over the new opening",
       },
     ],
     beforeAfter: {
       before: {
         src: "/work/before-after/highlands-kitchen-before.jpg",
-        alt: "Highlands Ranch kitchen closed off from the living room by a load-bearing wall",
+        alt: "Kitchen closed off from the living room by a load-bearing wall",
       },
       after: {
         src: "/work/before-after/highlands-kitchen-after.jpg",

@@ -1,60 +1,66 @@
-import Reveal from "@/components/Reveal";
+"use client";
 
-const items = [
-  {
-    question: "Do you pull permits?",
-    answer:
-      "We work to code and can coordinate with the permit process. On some jobs the homeowner or general contractor holds the permit; on others we handle it. We will say which applies before we start.",
-  },
-  {
-    question: "Do you work with homeowners or only general contractors?",
-    answer:
-      "Both. Homeowners hiring us directly, and GCs who need a framing crew. Either way you get the same work: square, plumb, and ready for the next trade.",
-  },
-  {
-    question: "How long does a typical job take?",
-    answer:
-      "A garage or small structural repair can be days. A room addition is usually weeks. A custom home depends on the plans and weather. We give a timeline with the estimate, not a guess on the first call.",
-  },
-  {
-    question: "What is not included?",
-    answer:
-      "We frame. Drywall, roofing, siding, windows, electrical, plumbing, and finish work are separate trades unless we agree otherwise in writing. The estimate will say exactly where our work stops.",
-  },
-  {
-    question: "Where do you work?",
-    answer:
-      "Aurora, Denver, and nearby Front Range communities — Centennial, Lakewood, Highlands Ranch, and similar. If you are farther out, ask. Some jobs are worth the drive.",
-  },
-];
+import { AnimatePresence, motion } from "motion/react";
+import { useId, useState } from "react";
 
-export default function Faq() {
+export type FaqItem = { question: string; answer: string };
+
+export default function Faq({ items }: { items: FaqItem[] }) {
+  const [open, setOpen] = useState<number | null>(0);
+  const baseId = useId();
+
   return (
-    <section id="faq" className="scroll-mt-24 bg-cream px-5 py-16 sm:px-8 sm:py-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="divide-y divide-line border-y border-line">
-          {items.map((item, index) => (
-            <Reveal key={item.question} variant="up" delay={index * 70}>
-            <details className="group py-5">
-              <summary className="cursor-pointer list-none font-serif text-lg font-semibold tracking-tight marker:content-none [&::-webkit-details-marker]:hidden">
-                <span className="flex items-start justify-between gap-4">
-                  {item.question}
+    <ul className="border-t border-ink/15">
+      {items.map((item, index) => {
+        const isOpen = open === index;
+        const panelId = `${baseId}-panel-${index}`;
+        const buttonId = `${baseId}-button-${index}`;
+        return (
+          <li key={item.question} className="border-b border-ink/15">
+            <h3>
+              <button
+                id={buttonId}
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                onClick={() => setOpen(isOpen ? null : index)}
+                className="group flex w-full items-center justify-between gap-8 py-7 text-left sm:py-9"
+              >
+                <span className="t-h3">{item.question}</span>
+                <span
+                  aria-hidden="true"
+                  className={`relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition-colors duration-500 ${
+                    isOpen ? "border-ink bg-ink text-paper" : "border-ink/25 group-hover:border-ink"
+                  }`}
+                >
+                  <span className="absolute h-px w-4 bg-current" />
                   <span
-                    aria-hidden="true"
-                    className="mt-1 text-brass transition-transform group-open:rotate-45"
-                  >
-                    +
-                  </span>
+                    className={`absolute h-4 w-px bg-current transition-transform duration-500 ease-out-expo ${
+                      isOpen ? "scale-y-0" : ""
+                    }`}
+                  />
                 </span>
-              </summary>
-              <p className="mt-3 max-w-3xl leading-relaxed text-muted">
-                {item.answer}
-              </p>
-            </details>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
+              </button>
+            </h3>
+            <AnimatePresence initial={false}>
+              {isOpen ? (
+                <motion.div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="overflow-hidden"
+                >
+                  <p className="t-body max-w-3xl pb-9 text-stone">{item.answer}</p>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+          </li>
+        );
+      })}
+    </ul>
   );
 }

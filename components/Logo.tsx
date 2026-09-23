@@ -1,52 +1,23 @@
-type LogoProps = {
-  className?: string;
-  variant?: "header" | "footer" | "watermark";
-};
-
-export default function Logo({
-  className = "h-10 w-10",
-  variant = "header",
-}: LogoProps) {
-  const tone =
-    variant === "footer" || variant === "watermark"
-      ? "text-cream/55"
-      : "text-forest/70";
-
+export function LogoMark({ className = "h-7 w-7" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 48 48"
-      className={`${tone} ${className}`}
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M8 22 L24 8 L40 22"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinejoin="miter"
-      />
-      <path
-        d="M12 22 V40 H36 V22"
-        stroke="currentColor"
-        strokeWidth="2.2"
-      />
-      <path
-        d="M18 40 V26 H30 V40"
-        stroke="currentColor"
-        strokeWidth="1.7"
-      />
-      <path
-        d="M24 8 V40"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        opacity="0.55"
-      />
-      <path
-        d="M12 31 H36"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        opacity="0.55"
-      />
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" className={className}>
+      <path d="M3 15 16 4l13 11" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M7 12.5V28h18V12.5" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M16 4v24M7 20h18" stroke="currentColor" strokeWidth="1" opacity="0.5" />
     </svg>
+  );
+}
+
+export default function Logo({ className = "" }: { className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-3 ${className}`}>
+      <LogoMark />
+      <span className="flex flex-col leading-none">
+        <span className="font-serif text-[1.35rem] tracking-[-0.02em]">Summit</span>
+        <span className="mt-1 text-[0.625rem] font-medium uppercase tracking-[0.28em] opacity-70">
+          Frame &amp; Build
+        </span>
+      </span>
+    </span>
   );
 }

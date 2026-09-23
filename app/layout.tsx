@@ -1,28 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
-import Header from "@/components/Header";
+import { Fraunces, Inter_Tight } from "next/font/google";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
-import Logo from "@/components/Logo";
-import MobileDock from "@/components/MobileDock";
-import RouteWipe from "@/components/RouteWipe";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-source-sans",
+  variable: "--font-inter-tight",
   display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-source-serif",
+  variable: "--font-fraunces",
+  axes: ["opsz"],
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0b1d36",
+  themeColor: "#f2eee6",
   viewportFit: "cover",
 };
 
@@ -51,27 +50,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      data-scroll-behavior="smooth"
-      className={`${sourceSans.variable} ${sourceSerif.variable} h-full antialiased`}
+      className={`${interTight.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="relative min-h-full bg-paper font-sans text-ink">
+      <body className="min-h-full bg-bone font-sans text-ink">
         <JsonLd />
-        <div
-          className="pointer-events-none absolute top-28 right-[-4rem] z-0 w-[28rem] text-forest opacity-[0.06] sm:right-[-2rem] sm:w-[34rem] lg:right-8"
-          aria-hidden="true"
-        >
-          <Logo className="h-auto w-full" />
-        </div>
+        <SmoothScroll />
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <div className="relative z-10">
-          <RouteWipe />
-          <Header />
-          {children}
-          <Footer />
-          <MobileDock />
-        </div>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );

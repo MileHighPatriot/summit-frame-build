@@ -1,46 +1,80 @@
 import type { Metadata } from "next";
-import PageCta from "@/components/PageCta";
-import PageHero from "@/components/PageHero";
-import Reveal from "@/components/Reveal";
-import TestimonialCard from "@/components/TestimonialCard";
+import Image from "next/image";
+import PageHeader from "@/components/ui/PageHeader";
+import Reveal from "@/components/ui/Reveal";
 import { testimonials } from "@/data/testimonials";
 
 export const metadata: Metadata = {
-  title: "Customer Testimonials",
+  title: "Testimonials",
   description:
-    "What Aurora and Denver metro homeowners say about Summit Frame & Build — custom framing, room additions, and structural work.",
+    "What Aurora and Denver metro homeowners say about Summit Frame & Build.",
 };
 
 export default function TestimonialsPage() {
+  const [featured, ...rest] = testimonials;
+
   return (
     <main id="main">
-      <PageHero
-        eyebrow="Customer testimonials"
-        title="The work has to hold up. So do the reviews."
-        lede="Homeowners in Aurora and the Denver metro hired us for framing, additions, and structural jobs. These are the kinds of notes we aim to earn."
-        image="/services/additions/add-into-house.jpg"
+      <PageHeader
+        eyebrow="Testimonials"
+        title="The work holds up. So do the reviews."
+        lede="Homeowners across the Denver metro on what it's like to have our crew on their property."
       />
 
-      <section className="bg-cream px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
-          {testimonials.map((testimonial, index) => (
+      <section className="container-x section-y">
+        <Reveal as="figure" className="mx-auto max-w-5xl">
+          <blockquote className="t-h2 text-balance">
+            <span className="text-cedar">&ldquo;</span>
+            {featured.quote}
+            <span className="text-cedar">&rdquo;</span>
+          </blockquote>
+          <Person testimonial={featured} className="mt-10" />
+        </Reveal>
+
+        <ul className="mt-24 grid border-t border-ink/15 sm:mt-36 md:grid-cols-2">
+          {rest.map((testimonial, index) => (
             <Reveal
+              as="li"
               key={testimonial.name}
-              variant={index % 2 === 0 ? "roll" : "swing"}
-              delay={(index % 2) * 90}
-              className="h-full"
+              delay={(index % 2) * 0.08}
+              className="flex flex-col border-b border-ink/15 py-12 md:px-10 md:odd:border-r md:odd:pl-0 md:even:pr-0 lg:py-16"
             >
-              <TestimonialCard testimonial={testimonial} />
+              <figure className="flex h-full flex-col">
+                <blockquote className="t-h3 text-balance">&ldquo;{testimonial.quote}&rdquo;</blockquote>
+                <Person testimonial={testimonial} className="mt-auto pt-10" />
+              </figure>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </section>
-
-      <PageCta
-        title="Planning a project?"
-        lede="Tell us what you need framed. We will follow up with a clear estimate."
-        image="/services/additions/add-into-house.jpg"
-      />
     </main>
+  );
+}
+
+function Person({
+  testimonial,
+  className = "",
+}: {
+  testimonial: (typeof testimonials)[number];
+  className?: string;
+}) {
+  return (
+    <figcaption className={`flex items-center gap-4 ${className}`}>
+      <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-full bg-sand">
+        <Image
+          src={testimonial.photo.src}
+          alt={testimonial.photo.alt}
+          fill
+          sizes="56px"
+          className="grade object-cover"
+        />
+      </span>
+      <span>
+        <span className="block text-lg">{testimonial.name}</span>
+        <span className="block text-stone">
+          {testimonial.project}, {testimonial.location}
+        </span>
+      </span>
+    </figcaption>
   );
 }

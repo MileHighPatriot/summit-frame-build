@@ -1,7 +1,6 @@
 export type Testimonial = {
   quote: string;
   name: string;
-  role: string;
   location: string;
   project: string;
   photo: { src: string; alt: string };
@@ -10,9 +9,8 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "They framed our addition so it lined up with the existing house. No drama, no guessing—just a square, solid job we could hand to the next trade.",
+      "Our addition lines up with the old house so well that guests ask which part is new. Frank's crew was honest, careful, and exactly on schedule.",
     name: "Miguel Herrera",
-    role: "Homeowner",
     location: "Aurora",
     project: "Room addition",
     photo: {
@@ -22,11 +20,10 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We hired Summit for the framing on a new build. Layout was clean, the walls were plumb, and they kept us posted without a lot of extra talk.",
+      "Our builder told us the framing is where most custom homes go wrong. Summit's was the reason everything after it went right.",
     name: "James Thornton",
-    role: "Homeowner",
     location: "Denver",
-    project: "Custom home framing",
+    project: "Custom home",
     photo: {
       src: "/people/customers/james-thornton.jpg",
       alt: "James Thornton",
@@ -34,11 +31,10 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We needed a beam and a load-bearing wall opened up. They explained the work in plain language and the structure felt right when they were done.",
+      "Taking out a load-bearing wall with our kids at home was nerve-wracking. They explained every step, kept the house clean, and finished in five days.",
     name: "Raj Shah",
-    role: "Homeowner",
     location: "Centennial",
-    project: "Structural work",
+    project: "Structural opening",
     photo: {
       src: "/people/customers/raj-shah.jpg",
       alt: "Raj Shah",
@@ -46,11 +42,10 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The detached garage sits square on the pad and looks like it belongs with the house. Straightforward estimate and a tidy job site.",
+      "The garage sits perfectly square on the pad and looks like it came with the house. Clear estimate, tidy site, no surprises.",
     name: "Chris Molina",
-    role: "Homeowner",
     location: "Aurora",
-    project: "Garage",
+    project: "Detached garage",
     photo: {
       src: "/people/customers/chris-molina.jpg",
       alt: "Chris Molina",
@@ -58,9 +53,8 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "They tied the new rooms into our 1970s ranch without making a mess of the old framing. We would hire them again for the next phase.",
+      "They tied two new rooms into our 1970s ranch without disturbing the old framing. We've already booked them for the next phase.",
     name: "Carlos Ramirez",
-    role: "Homeowner",
     location: "Lakewood",
     project: "Room addition",
     photo: {
@@ -70,11 +64,10 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Snow load and a sagging span had us worried. They reinforced it properly and did not oversell the job. That is hard to find.",
+      "We had a sagging span and a lot of worry. They reinforced it properly, priced it fairly, and never tried to upsell us.",
     name: "David Keane",
-    role: "Homeowner",
     location: "Highlands Ranch",
-    project: "Structural work",
+    project: "Structural repair",
     photo: {
       src: "/people/customers/david-keane.jpg",
       alt: "David Keane",

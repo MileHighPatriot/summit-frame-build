@@ -15,47 +15,44 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0b1d36",
-          color: "#f8fafc",
-          padding: 72,
+          background: "#1f1d1a",
+          color: "#faf8f4",
+          padding: 80,
+          fontFamily: "Georgia, serif",
         }}
       >
         <div
           style={{
             display: "flex",
-            fontSize: 22,
-            letterSpacing: "0.22em",
+            justifyContent: "space-between",
+            fontSize: 20,
+            letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#9aa8b5",
+            color: "rgba(250,248,244,0.6)",
+            fontFamily: "sans-serif",
           }}
         >
-          {`Family-run since ${site.founded}`}
+          <span>{site.name}</span>
+          <span>{`Est. ${site.founded}`}</span>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              fontSize: 64,
-              lineHeight: 1.1,
-              maxWidth: 960,
-            }}
-          >
-            {site.tagline}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", fontSize: 96, lineHeight: 1, letterSpacing: "-0.03em" }}>
+            Square, plumb,
+          </div>
+          <div style={{ display: "flex", fontSize: 96, lineHeight: 1.05, letterSpacing: "-0.03em" }}>
+            <span>and built to&nbsp;</span>
+            <span style={{ color: "#c9a27c", fontStyle: "italic" }}>last.</span>
           </div>
           <div
             style={{
               display: "flex",
-              marginTop: 20,
+              marginTop: 40,
               fontSize: 26,
-              color: "rgba(248,250,252,0.75)",
+              color: "rgba(250,248,244,0.65)",
+              fontFamily: "sans-serif",
             }}
           >
-            {`${site.name}  ·  ${site.area}`}
+            Custom framing in Aurora &amp; the Denver metro
           </div>
         </div>
       </div>
