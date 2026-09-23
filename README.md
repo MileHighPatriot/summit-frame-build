@@ -1,6 +1,6 @@
 # Summit Frame & Build
 
-A concept marketing site for a fictional, family-run framing company in Aurora, Colorado. Built as a portfolio piece to show editorial web design for a trade business. The people, projects, and reviews are illustrative, and the photography is generated.
+A concept marketing site for a fictional, family-run framing company in Aurora, Colorado. Built as a portfolio piece to show editorial web design for a trade business. The people, projects, and reviews are illustrative, and most photography is generated. The homepage drone footage is by K on [Pexels](https://www.pexels.com/video/an-aerial-view-of-a-house-being-built-17506765/) (free to use), encoded to 1440p, 1080p, and a portrait cut for phones.
 
 Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Motion**, and **Lenis**.
 
