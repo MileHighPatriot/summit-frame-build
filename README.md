@@ -38,7 +38,7 @@ Without a key, the form falls back to opening the visitor's email app with the d
 npm run pages
 ```
 
-This builds with the `/summit-frame-build` base path and writes the static site to `docs/`.
+This builds at the site root (served at https://summit.5280webs.com; `public/CNAME` sets the domain) and writes the static site to `docs/`.
 
 ## Map
 

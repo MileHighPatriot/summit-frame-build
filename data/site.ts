@@ -1,7 +1,7 @@
 export const site = {
   name: "Summit Frame & Build",
   shortName: "Summit",
-  url: "https://summit-frame-build.vercel.app",
+  url: "https://summit.5280webs.com",
   locale: "en_US",
   founded: 1989,
   tagline: "Square, plumb, and built to last.",
